@@ -4,7 +4,7 @@ public:
         if(i==0 && j==0){
             return 1;
         }
-        if(i<0 || j<0) return 0;
+        //if(i<0 || j<0) return 0;
         if(dp[i][j] != -1) return dp[i][j];
         int up =0 ,left =0;
         if(i>0 && og[i-1][j] ==0) up= f(i-1,j,og,dp); //check for ou of bound indices . it gives runtime error.
