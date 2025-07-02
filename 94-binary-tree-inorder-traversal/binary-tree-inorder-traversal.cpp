@@ -9,7 +9,7 @@
  *     TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
  * };
  */
-class Solution {
+/*class Solution {
 public:
      void f(TreeNode * root, vector<int> &res){
         if(root== NULL) return;
@@ -22,5 +22,28 @@ public:
         f(root,res);
         
         return res;
+    }
+};*/
+
+class Solution{
+public:
+    vector<int> inorderTraversal(TreeNode* root){
+        stack<TreeNode*> st;
+        TreeNode* node= root;
+        vector<int> ans;
+        while(true){
+            if(node != NULL){
+                st.push(node);
+                node= node->left;
+            }
+            else{
+                if(st.empty()) break;
+                node = st.top();
+                st.pop();
+                ans.push_back(node->val);
+                node=node->right;
+            }
+        }
+        return ans;
     }
 };
