@@ -11,7 +11,7 @@
  */
 class Solution {
 public:
-    TreeNode* f(vector<int>& preorder,int prestart,int preend ,vector<int>& inorder , int instart,int inend,map<int,int> &mpp){
+    TreeNode* f(vector<int>& preorder,int prestart,int preend ,vector<int>& inorder , int instart,int inend,unordered_map<int,int> &mpp){
         if(prestart > preend || instart>inend) return NULL;
         TreeNode* root = new TreeNode(preorder[prestart]);
         int inroot = mpp[root->val];
@@ -25,7 +25,7 @@ public:
     }
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         //hashmap to store preorder,so it makes searching easier
-        map <int,int> mpp;
+        unordered_map <int,int> mpp;
         for(int i =0;i<inorder.size();i++){
             mpp[inorder[i]] =i;
         }
