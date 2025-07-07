@@ -11,7 +11,7 @@
  */
  class BSTIterator{
     stack<TreeNode*> st;
-    bool reverse;
+    bool reverse; // true for reverse 
 public:
     BSTIterator(TreeNode* root , bool isreverse){
         reverse = isreverse;
@@ -24,16 +24,16 @@ public:
     int next(){
         TreeNode* temp = st.top();
         st.pop();
-        if(!reverse) pushall(temp->right);
-        else pushall(temp->left);
+        if(!reverse) pushall(temp->right); //for notreverse/next
+        else pushall(temp->left); //for reverse/before
         return temp->val;
 
     }
     void pushall(TreeNode* root){
         while(root){
             st.push(root);
-            if(reverse) root= root->right;
-            else root= root->left;
+            if(reverse) root= root->right; //for reverse/before
+            else root= root->left; //not reverse/next
         }
     }
  };
@@ -43,7 +43,7 @@ public:
         if(!root) return false;
         BSTIterator l(root,false);
         BSTIterator r(root,true);
-
+        //2 pointers
         int i = l.next();
         int j = r.next();
         while(i<j){
