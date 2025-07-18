@@ -16,7 +16,7 @@ public:
                 sum += peak;
                 i++;
             }
-            int down = 0;
+            int down = 0; //down will go in reverse so we are assigning 1 candy again to the last one in the down slope.
             while(i<n && ratings[i] <ratings[i-1]){
                 down++;
                 sum += down;
