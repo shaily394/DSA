@@ -16,12 +16,14 @@ public:
                 sum += peak;
                 i++;
             }
-            int down = 1;
+            int down = 0;
             while(i<n && ratings[i] <ratings[i-1]){
+                down++;
                 sum += down;
                 i++;
-                down++;
+                
             }
+            down++;
             if(down >peak){
                 sum += down - peak;
             }
