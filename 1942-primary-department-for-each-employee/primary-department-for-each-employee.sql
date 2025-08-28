@@ -1,5 +1,5 @@
 # Write your MySQL query statement below
-select employee_id ,  department_id
+select  employee_id ,  department_id
 from Employee
 where employee_id in (
 select employee_id
