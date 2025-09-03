@@ -14,7 +14,7 @@ public:
     }
 }; */
 
-
+/* one pass - dnf algorithm */
 class Solution {
 public:
     void sortColors(vector<int>& nums){
